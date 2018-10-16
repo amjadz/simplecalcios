@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     
-    
     @IBAction func numbers(_ sender: UIButton) {
         
         if math == true {
@@ -53,6 +52,19 @@ class ViewController: UIViewController {
                 label.text = "+"
                 
             }
+            else if sender.tag == 17{
+                label.text = "avg"
+                
+            }
+            else if sender.tag == 18 {
+                label.text = "count"
+                
+            }
+            else if sender.tag == 19 {
+                label.text = "fact"
+                
+            }
+            
             operation = sender.tag
             math = true
         }
@@ -77,7 +89,6 @@ class ViewController: UIViewController {
             previousSum = 0
             num = 0
             operation = 0
-            
             
         }
     }
