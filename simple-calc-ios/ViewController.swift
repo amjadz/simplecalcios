@@ -82,7 +82,18 @@ class ViewController: UIViewController {
                 label.text = String(previousSum + num)
                 
             }
+            else if operation == 17 {
+                label.text = String()
+                
+            }
             
+            else if operation == 18 {
+                label.text = String()
+
+            }
+            else if operation == 19 {
+                label.text = String()
+            }
         }
         else if sender.tag == 11{
             label.text = "0"
