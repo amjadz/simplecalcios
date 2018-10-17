@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var num = 0
     var previousSum =  0
     var averageStorage = [Int]()
+    var factorial = [Int]()
     var operation = 0
     var math = false
     
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
     
         if label.text != "" && sender.tag != 11 && sender.tag != 16 {
             averageStorage.append(num)
+            factorial.append(num)
             previousSum = Int(label.text!)!
             
             if sender.tag == 12{ // Divide
@@ -88,14 +90,11 @@ class ViewController: UIViewController {
             }
             else if operation == 17 {
                 var sum = 0
-                var result = 0;
                 for num in averageStorage {
                     sum += num
         
                 }
-                result = sum / averageStorage.count
-                // do if statement to store last num
-                label.text = String(result)
+                label.text = String(sum / averageStorage.count)
             }
             
             else if operation == 18 {
@@ -104,8 +103,13 @@ class ViewController: UIViewController {
 
             }
             else if operation == 19 {
+                var multiply = 1;
                 
-                label.text = String()
+                for num in 1...factorial[0] {
+                    multiply *= num
+                }
+                label.text = String(multiply)
+                factorial.remove(at: 0)
             }
         }
         else if sender.tag == 11{
