@@ -8,6 +8,9 @@
 
 import UIKit
 
+// One Bug is that you have to press count or avg after the
+// the last num again, and then press equal to get the result
+
 class ViewController: UIViewController {
     var num = 0
     var previousSum =  0
@@ -109,11 +112,12 @@ class ViewController: UIViewController {
                     multiply *= num
                 }
                 label.text = String(multiply)
-                factorial.remove(at: 0)
             }
         }
         else if sender.tag == 11{
             label.text = ""
+            averageStorage.removeAll()
+            factorial.removeAll()
             previousSum = 0
             num = 0
             operation = 0
