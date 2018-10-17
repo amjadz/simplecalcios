@@ -11,13 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     var num = 0
     var previousSum =  0
+    var averageStorage = [Int]()
     var operation = 0
     var math = false
     
     @IBOutlet weak var label: UILabel!
     
     @IBAction func numbers(_ sender: UIButton) {
-        
         if math == true {
             label.text = String(sender.tag - 1)
             num = Int(label.text!)!
@@ -29,11 +29,15 @@ class ViewController: UIViewController {
             num = Int(label.text!)!
             
         }
+        
+
     }
     
     
     @IBAction func buttons(_ sender: UIButton) {
+    
         if label.text != "" && sender.tag != 11 && sender.tag != 16 {
+            averageStorage.append(num)
             previousSum = Int(label.text!)!
             
             if sender.tag == 12{ // Divide
@@ -83,27 +87,36 @@ class ViewController: UIViewController {
                 
             }
             else if operation == 17 {
-                label.text = String()
-                
+                var sum = 0
+                var result = 0;
+                for num in averageStorage {
+                    sum += num
+        
+                }
+                result = sum / averageStorage.count
+                // do if statement to store last num
+                label.text = String(result)
             }
             
             else if operation == 18 {
-                label.text = String()
+                // Average count is the same funcatioanlity as average
+                label.text = String(averageStorage.count)
 
             }
             else if operation == 19 {
+                
                 label.text = String()
             }
         }
         else if sender.tag == 11{
-            label.text = "0"
+            label.text = ""
             previousSum = 0
             num = 0
             operation = 0
             
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
